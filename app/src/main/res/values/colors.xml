@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_01">#dddddd</color>
+    <color name="gray_01">#909090</color>
+    <color name="gray_02">#8B8886</color>
+    <color name="rosein">#FF3366</color>
+    <color name="black">#000000</color>
+    <color name="cyan">#50D2C2</color>
+    <color name="orange">#FCAB53</color>
+
+    <!--本来的机子界面的颜色-->
+    <color name="root_color">#E2E2E2</color>
+</resources>
