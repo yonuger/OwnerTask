@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.group.GroupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="@mipmap/background_head_02">
+
+        <include
+            layout="@layout/view_navigation_bar"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="28dp"
+            android:textSize="32sp"
+            android:textColor="@color/white_01"
+            android:text="My Groups"/>
+
+    </LinearLayout>
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:verticalSpacing="1px"
+        android:horizontalSpacing="1px"
+        android:background="@color/root_color"
+        android:scrollbars="none"
+        android:id="@+id/gv_group">
+    </GridView>
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.young.ownertask.ui.list.ListItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_list_item_statue"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@color/cyan"/>
+
+    <ImageView
+        android:id="@+id/iv_list_item_check"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_check"/>
+    <TextView
+        android:id="@+id/tv_list_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="22sp"
+        android:text="Apples"/>
+</com.young.ownertask.ui.list.ListItemView>

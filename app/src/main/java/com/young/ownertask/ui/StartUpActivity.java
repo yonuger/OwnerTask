@@ -1,7 +1,9 @@
 package com.young.ownertask.ui;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +28,12 @@ public class StartUpActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_next:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intent = new Intent(StartUpActivity.this, LoginActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                }else{
+                    startActivity(intent);
+                }
         }
     }
 }

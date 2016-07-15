@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -6,6 +6,14 @@
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
         <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
+        <!--设置进入动画      通过滑动方式进入-->
+        <item name="android:windowEnterTransition" tools:ignore="NewApi">@transition/fade</item>
+        <!--设置退出动画      通过滑动方式退出-->
+        <item name="android:windowExitTransition" tools:ignore="NewApi">@transition/fade</item>
+
+        <item name="android:windowReenterTransition" tools:ignore="NewApi">@transition/fade</item>
+        <item name="android:windowReturnTransition" tools:ignore="NewApi">@transition/fade</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,5 +24,4 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 </resources>

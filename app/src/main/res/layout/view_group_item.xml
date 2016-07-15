@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.young.ownertask.ui.group.GroupItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="140dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/tv_group_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop"
+            android:layout_gravity="center_horizontal"
+            android:textSize="26sp"/>
+        <TextView
+            android:id="@+id/tv_group_item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:text="25  ITEMS"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12sp"/>
+        <RelativeLayout
+            android:id="@+id/rl_group_item_statue"
+            android:layout_width="20dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/cyan"/>
+
+    </LinearLayout>
+</com.young.ownertask.ui.group.GroupItemView>

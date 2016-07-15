@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.young.ownertask.R;
+import com.young.ownertask.ui.home.HomeActivity;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 
@@ -29,6 +30,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_login_sign_up:
+                this.overridePendingTransition(R.transition.out_to_left, R.transition.in_from_right);
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.btn_login:

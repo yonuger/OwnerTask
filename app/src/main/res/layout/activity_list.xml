@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.list.ListActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_list_head"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="@mipmap/background_head_03">
+
+        <include layout="@layout/view_navigation_bar"/>
+
+        <TextView
+            android:id="@+id/tv_list_title"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="28dp"
+            android:textSize="32sp"
+            android:textColor="@color/white_01"
+            android:text="Shop"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_add"/>
+    <ListView
+        android:id="@+id/lv_list"
+        android:layout_below="@+id/ll_list_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

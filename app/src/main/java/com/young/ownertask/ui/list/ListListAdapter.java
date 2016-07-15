@@ -1,4 +1,4 @@
-package com.young.ownertask.ui;
+package com.young.ownertask.ui.list;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,24 +8,28 @@ import android.widget.BaseAdapter;
 
 import com.young.ownertask.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author: young
  * email:1160415122@qq.com
- * date:16/6/28  20:08
+ * date:16/6/29  14:19
  */
 
 
-public class CalendarAdapter extends BaseAdapter{
+public class ListListAdapter extends BaseAdapter{
 
-    private List<CalendarInfo> data;
     private Context mContext;
-    private List<CalendarInfo> mDatas;
+    private List<ListNoticeInfo> mDatas;
 
-    public CalendarAdapter(Context context, List<CalendarInfo> data) {
+    public ListListAdapter(Context context, List<ListNoticeInfo> mDatas) {
         this.mContext = context;
-        this.mDatas = data;
+        if( mDatas != null ){
+            this.mDatas = mDatas;
+        }else{
+            this.mDatas = new ArrayList<ListNoticeInfo>();
+        }
     }
 
     @Override
@@ -46,9 +50,9 @@ public class CalendarAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if( view == null ){
-            view = LayoutInflater.from(mContext).inflate(R.layout.view_calendar_item, viewGroup, false);
+            view = LayoutInflater.from(mContext).inflate(R.layout.view_list_item, viewGroup, false);
         }
-        ((CalendarItemView)view).resetView(mDatas.get(i));
+        ((ListItemView)view).resetView(mDatas.get(i));
         return view;
     }
 }
