@@ -125,6 +125,7 @@
         android:background="@color/gray"/>
 
     <RelativeLayout
+        android:id="@+id/rl_layout_menu_timeline"
         android:layout_width="@dimen/layout_menu_width"
         android:layout_height="60dip">
 
@@ -144,6 +145,7 @@
         android:background="@color/gray"/>
 
     <RelativeLayout
+        android:id="@+id/rl_layout_menu_setting"
         android:layout_width="@dimen/layout_menu_width"
         android:layout_height="60dip">
 

@@ -20,6 +20,8 @@ import com.young.ownertask.ui.add.AddActivity;
 import com.young.ownertask.ui.group.GroupActivity;
 import com.young.ownertask.ui.list.ListActivity;
 import com.young.ownertask.ui.profile.ProfileActivity;
+import com.young.ownertask.ui.setting.SettingActivity;
+import com.young.ownertask.ui.timeline.TimeLineActivity;
 import com.young.ownertask.widgets.NavigationBar;
 import com.young.ownertask.widgets.SlideMenu;
 
@@ -43,7 +45,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private NavigationBar navigationBar;
 
     //菜单控件
-    private RelativeLayout listsRl, groupRl, profileRl;
+    private RelativeLayout listsRl, groupRl, profileRl, timelineRl, settingRl;
 
     //添加按钮
     private ImageView addIv;
@@ -76,6 +78,10 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         groupRl.setOnClickListener(this);
         profileRl = (RelativeLayout) findViewById(R.id.rl_layout_menu_profile);
         profileRl.setOnClickListener(this);
+        timelineRl = (RelativeLayout) findViewById(R.id.rl_layout_menu_timeline);
+        timelineRl.setOnClickListener(this);
+        settingRl = (RelativeLayout) findViewById(R.id.rl_layout_menu_setting);
+        settingRl.setOnClickListener(this);
 
         addIv = (ImageView) findViewById(R.id.iv_home_add);
         addIv.setOnClickListener(this);
@@ -156,6 +162,24 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             case R.id.rl_layout_menu_profile:
                 slideMenu.closeMenu();
                 intent = new Intent(this, ProfileActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                }else{
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rl_layout_menu_timeline:
+                slideMenu.closeMenu();
+                intent = new Intent(this, TimeLineActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                }else{
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rl_layout_menu_setting:
+                slideMenu.closeMenu();
+                intent = new Intent(this, SettingActivity.class);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 }else{

@@ -18,7 +18,7 @@ public class BacklogInfo {
     private String title;
     private String time;
     private String name;
-    private int statue;     //状态有3种     0-  1-  2-
+    private int statue;     //状态有3种     0-无  1-已完成  2-被提醒
 
     public BacklogInfo(Context context, int bitmapId, String title, String time, String name, int statue) {
         this.bitmap = BitmapFactory.decodeResource(context.getResources(), bitmapId);

@@ -9,33 +9,56 @@ package com.young.ownertask.ui.profile;
 
 public class ProfileInfo {
     //已完成的数目
-    private int completed;
+    private int completedTask;
     //被提醒过的数目
-    private int snoozed;
+    private int snoozedTask;
     //未完成的数目
-    private int overdue;
+    private int overdueTask;
 
-    public int getCompleted() {
-        return completed;
+    //日期间隔的第一天号数
+    private int dateFirst;
+
+    public ProfileInfo(int completedTask, int snoozedTask, int overdueTask, int dateFirst) {
+        this.completedTask = completedTask;
+        this.snoozedTask = snoozedTask;
+        this.overdueTask = overdueTask;
+        this.dateFirst = dateFirst;
     }
 
-    public void setCompleted(int completed) {
-        this.completed = completed;
+
+    public int getTotleTask(){
+        return completedTask + snoozedTask + overdueTask;
     }
 
-    public int getSnoozed() {
-        return snoozed;
+    public int getCompletedTask() {
+        return completedTask;
     }
 
-    public void setSnoozed(int snoozed) {
-        this.snoozed = snoozed;
+    public void setCompletedTask(int completedTask) {
+        this.completedTask = completedTask;
     }
 
-    public int getOverdue() {
-        return overdue;
+    public int getSnoozedTask() {
+        return snoozedTask;
     }
 
-    public void setOverdue(int overdue) {
-        this.overdue = overdue;
+    public void setSnoozedTask(int snoozedTask) {
+        this.snoozedTask = snoozedTask;
+    }
+
+    public int getOverdueTask() {
+        return overdueTask;
+    }
+
+    public void setOverdueTask(int overdueTask) {
+        this.overdueTask = overdueTask;
+    }
+
+    public int getDateFirst() {
+        return dateFirst;
+    }
+
+    public void setDateFirst(int dateFirst) {
+        this.dateFirst = dateFirst;
     }
 }

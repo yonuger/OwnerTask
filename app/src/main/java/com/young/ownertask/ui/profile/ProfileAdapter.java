@@ -17,35 +17,33 @@ import com.young.ownertask.R;
 
 import android.graphics.Bitmap;
 
-public class ProfileAdapter extends BaseAdapter{
-//    private List<ProfileInfo> mDatas;
-//    private Context mContext;
-//    private LayoutInflater mInflater;
-//    Bitmap iconBitmap;
-//    private int selectIndex = -1;
+import java.util.ArrayList;
+import java.util.List;
 
-    private int[] mIconIDs;
-    private String[] mTitles;
+public class ProfileAdapter extends BaseAdapter{
+
+    private List<ProfileInfo> mDatas;
     private Context mContext;
     private LayoutInflater mInflater;
-    Bitmap iconBitmap;
-    private int selectIndex = -1;
 
-    public ProfileAdapter(Context context, String[] titles, int[] ids){
-//        this.mContext = context;
-//        if( profileInfoList == null ){
-//            profileInfoList = new ArrayList<ProfileInfo>();
-//        }
-//        this.mDatas = profileInfoList;
-//        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);//LayoutInflater.from(mContext);
+    //最高的任务数值
+    private int maxValue;
+
+    public ProfileAdapter(Context context, List<ProfileInfo> profileInfoList){
         this.mContext = context;
-        this.mIconIDs = ids;
-        this.mTitles = titles;
-        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if( profileInfoList == null ){
+            profileInfoList = new ArrayList<ProfileInfo>();
+        }
+        this.mDatas = profileInfoList;
+        for (ProfileInfo mProfile :
+                profileInfoList) {
+            maxValue = maxValue>mProfile.getTotleTask()?maxValue:mProfile.getTotleTask();
+        }
+        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);//LayoutInflater.from(mContext);
     }
     @Override
     public int getCount() {
-        return mIconIDs.length;
+        return mDatas.size();
     }
     @Override
     public Object getItem(int position) {
@@ -58,35 +56,11 @@ public class ProfileAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        ViewHolder holder;
-        if(convertView==null){
-            holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.view_profile_item, null);
-//            holder.mImage=(ImageView)convertView.findViewById(R.id.img_list_item);
-//            holder.mTitle=(TextView)convertView.findViewById(R.id.text_list_item);
-            convertView.setTag(holder);
-        }else{
-            holder=(ViewHolder)convertView.getTag();
+    public View getView(int position, View view, ViewGroup parent) {
+        if( view == null ){
+            view = mInflater.inflate(R.layout.view_profile_item, null);
         }
-        if(position == selectIndex){
-            convertView.setSelected(true);
-        }else{
-            convertView.setSelected(false);
-        }
-
-//        holder.mTitle.setText(mTitles[position]);
-//        holder.mImage.setImageBitmap(iconBitmap);
-
-        return convertView;
-    }
-
-    private static class ViewHolder {
-
-    }
-
-    public void setSelectIndex(int i){
-        selectIndex = i;
+        ((ProfileViewItem)view).resetView(mDatas.get(position), maxValue);
+        return view;
     }
 }

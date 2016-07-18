@@ -27,6 +27,10 @@
             android:text="Nicole James"/>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_list_head">
     <LinearLayout
         android:layout_below="@+id/ll_list_head"
         android:background="@color/white"
@@ -61,19 +65,104 @@
 
 
         </LinearLayout>
-        <com.young.ownertask.widgets.HorizontalListView
-            android:id="@+id/hlv_profile_chart"
-            android:layout_width="match_parent"
-            android:layout_height="100dip"
-            android:layout_marginTop="10dp" >
-        </com.young.ownertask.widgets.HorizontalListView>
 
+        <include layout="@layout/view_profile_chart"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="57"
+                    android:textSize="36sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="COMPLETED"
+                    android:textColor="@color/gray_01"
+                    android:textSize="16sp"/>
+                <LinearLayout
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="16dp"
+                    android:layout_height="4dp"
+                    android:background="@color/cyan"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="19"
+                    android:textSize="36sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="SNOOZED"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/gray_01"
+                    android:textSize="16sp"/>
+                <LinearLayout
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_horizontal"                    android:background="@color/orange"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="4"
+                    android:textSize="36sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="OVERDUE"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/gray_01"
+                    android:textSize="16sp"/>
+                <LinearLayout
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="16dp"
+                    android:layout_height="4dp"
+                    android:background="@color/rosein"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-    <!--<ImageView-->
-        <!--android:layout_width="60dp"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_marginTop="190dp"-->
-        <!--android:layout_marginRight="15dp"-->
-        <!--android:src="@mipmap/ic_more"/>-->
+    </ScrollView>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="190dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_more"/>
 </RelativeLayout>
