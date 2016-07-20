@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:animateLayoutChanges="true"
     tools:context=".ui.list.ListActivity">
 
     <LinearLayout
@@ -24,15 +25,8 @@
             android:paddingLeft="28dp"
             android:textSize="32sp"
             android:textColor="@color/white_01"
-            android:text="Shop"/>
+            android:text="TaskAdd"/>
     </LinearLayout>
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="130dp"
-        android:layout_marginRight="15dp"
-        android:src="@mipmap/ic_add"/>
 
     <LinearLayout
         android:background="@color/white"
@@ -41,16 +35,38 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
+            android:id="@+id/et_activity_add_title"
+            android:background="@null"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
             android:layout_marginRight="@dimen/dimen_activity_add_margin_right"
             android:textColor="@color/gray_01"
             android:textSize="16sp"
-            android:text="Shop description"/>
+            android:hint="title"
+            android:text=""/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <EditText
+            android:id="@+id/et_activity_add_description"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
+            android:layout_marginRight="@dimen/dimen_activity_add_margin_right"
+            android:textColor="@color/gray_01"
+            android:textSize="16sp"
+            android:hint="description"
+            android:text=""/>
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_activity_add_margin_top"
             android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
-            android:layout_marginRight="@dimen/dimen_activity_add_margin_right">
+            android:layout_marginRight="@dimen/dimen_activity_add_margin_right"
+            android:layout_marginBottom="@dimen/dimen_activity_add_margin_top">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,85 +90,94 @@
                 android:textSize="16sp"
                 android:text="All Day"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <com.zwc.togglebutton.ToggleButton
+                android:id="@+id/tgbtn_activity_add_switch"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_switch"
                 android:layout_gravity="right"/>
 
         </RelativeLayout>
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/ll_activity_add_time"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_activity_add_margin_top"
-            android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
-            android:layout_marginRight="@dimen/dimen_activity_add_margin_right">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:textColor="@color/gray_01"
-                android:textSize="16sp"
-                android:text="From"/>
+                android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
+                android:layout_marginRight="@dimen/dimen_activity_add_margin_right">
 
-            <TextView
-                android:id="@+id/iv_add_from_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
-                android:text="9:00am"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/gray_01"
+                    android:textSize="16sp"
+                    android:text="From"/>
 
-            <TextView
-                android:id="@+id/iv_add_from_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/iv_add_from_time"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
-                android:text="February 9, 2015"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_activity_add_margin_top"
-            android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
-            android:layout_marginRight="@dimen/dimen_activity_add_margin_right"
-            android:layout_marginBottom="@dimen/dimen_activity_add_margin_bottom">
+                <TextView
+                    android:id="@+id/tv_add_from_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="9:00am"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_add_from_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tv_add_from_time"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="February 9, 2015"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:textColor="@color/gray_01"
-                android:textSize="16sp"
-                android:text="To"/>
+                android:layout_marginTop="@dimen/dimen_activity_add_margin_top"
+                android:layout_marginLeft="@dimen/dimen_activity_add_margin_left"
+                android:layout_marginRight="@dimen/dimen_activity_add_margin_right"
+                android:layout_marginBottom="@dimen/dimen_activity_add_margin_bottom">
 
-            <TextView
-                android:id="@+id/iv_add_to_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
-                android:text="9:00am"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/gray_01"
+                    android:textSize="16sp"
+                    android:text="To"/>
 
-            <TextView
-                android:id="@+id/iv_add_to_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/iv_add_to_time"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
-                android:text="February 9, 2015"/>
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_add_to_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="9:00am"/>
+
+                <TextView
+                    android:id="@+id/tv_add_to_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tv_add_to_time"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="February 9, 2015"/>
+            </RelativeLayout>
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1px"
@@ -267,5 +293,13 @@
             android:layout_height="1px"
             android:background="@color/gray"/>
     </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_add_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_add"/>
 
 </RelativeLayout>

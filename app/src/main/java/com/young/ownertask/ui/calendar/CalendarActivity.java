@@ -1,5 +1,4 @@
-package com.young.ownertask.ui.home;
-
+package com.young.ownertask.ui.calendar;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -12,14 +11,14 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.young.ownertask.R;
 import com.young.ownertask.ui.BacklogInfo;
 import com.young.ownertask.ui.add.view.AddActivity;
-import com.young.ownertask.ui.add.view.AddActivity_;
-import com.young.ownertask.ui.calendar.CalendarActivity;
 import com.young.ownertask.ui.group.GroupActivity;
+import com.young.ownertask.ui.home.CalendarAdapter;
+import com.young.ownertask.ui.home.CalendarInfo;
+import com.young.ownertask.ui.home.TaskItemView;
 import com.young.ownertask.ui.list.ListActivity;
 import com.young.ownertask.ui.profile.ProfileActivity;
 import com.young.ownertask.ui.setting.SettingActivity;
@@ -31,17 +30,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 本素材由千图网获得,请勿作任何商业用途进行收费下载
  * @author: young
  * email:1160415122@qq.com
- * date:16/6/28  12:17
+ * date:16/7/18  16:21
  */
 
-public class HomeActivity extends Activity implements View.OnClickListener {
+
+public class CalendarActivity extends Activity implements View.OnClickListener {
 
     private LinearLayout taskLl;
     private GridView calendarGv;
-    private TextView titleTv, monthTv;
 
     private SlideMenu slideMenu;
     private NavigationBar navigationBar;
@@ -58,7 +56,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_calendar);
 
         initComponent();
         makeData();
@@ -72,10 +70,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
 
         taskLl = (LinearLayout) findViewById(R.id.ll_home_task);
         calendarGv = (GridView) findViewById(R.id.gv_home_calendar);
-        titleTv = (TextView) findViewById(R.id.tv_home_title);
-        titleTv.setOnClickListener(this);
-        monthTv = (TextView) findViewById(R.id.tv_home_month);
-        monthTv.setOnClickListener(this);
         slideMenu = (SlideMenu) findViewById(R.id.slide_menu);
 
         listsRl = (RelativeLayout) findViewById(R.id.rl_layout_menu_lists);
@@ -89,8 +83,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         settingRl = (RelativeLayout) findViewById(R.id.rl_layout_menu_setting);
         settingRl.setOnClickListener(this);
 
-        addIv = (ImageView) findViewById(R.id.iv_home_add);
-        addIv.setOnClickListener(this);
 
         navigationBar.getMenu().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,12 +125,16 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         calendarInfoList.add(new CalendarInfo("THU", false,false));
         calendarInfoList.add(new CalendarInfo("FRI", false,false));
         calendarInfoList.add(new CalendarInfo("SAT", false,false));
-        for(int i = 7; i < 14; i++){
+        calendarInfoList.add(new CalendarInfo("31", false, false));
+        for(int i = 1; i < 29; i++){
             if( i == 8 || i == 11 ){
                 calendarInfoList.add(new CalendarInfo(""+i, true, true));
             }else{
                 calendarInfoList.add(new CalendarInfo(""+i, false, true));
             }
+        }
+        for(int i = 1; i < 7; i++){
+            calendarInfoList.add(new CalendarInfo(""+i, false, false));
         }
         CalendarAdapter adapter = new CalendarAdapter(this, calendarInfoList);
         calendarGv.setAdapter(adapter);
@@ -194,22 +190,15 @@ public class HomeActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.iv_home_add:
-                intent = new Intent(this, AddActivity_.class);
+                intent = new Intent(this, AddActivity.class);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 }else{
                     startActivity(intent);
                 }
                 break;
-            case R.id.tv_home_month:
-                slideMenu.closeMenu();
-                intent = new Intent(this, CalendarActivity.class);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, headLl, "transitionHead").toBundle());
-//                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
-                }else{
-                    startActivity(intent);
-                }
+            case R.id.tv_home_title:
+
                 break;
         }
     }

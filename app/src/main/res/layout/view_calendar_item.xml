@@ -7,7 +7,7 @@
         android:id="@+id/tv_view_calendar_item_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray_02"
+        android:textColor="@color/gray_01"
         android:textSize="14sp"
         android:gravity="center"
         android:text="8"/>

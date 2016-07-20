@@ -53,5 +53,10 @@ public class CalendarItemView extends LinearLayout{
         }else{
             noticeIv.setVisibility(INVISIBLE);
         }
+        if( calendarInfo.isInMonth() ){
+            dayTv.setTextColor(getResources().getColor(R.color.gray_01));
+        }else{
+            dayTv.setTextColor(getResources().getColor(R.color.gray));
+        }
     }
 }

@@ -19,9 +19,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
+                android:id="@+id/ll_home_head"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:orientation="vertical"
+                android:transitionName="transitionHead"
                 android:background="@mipmap/backgroud_head">
 
                 <include layout="@layout/view_navigation_bar"/>
@@ -62,6 +64,7 @@
                         android:src="@mipmap/ic_left"/>
 
                     <TextView
+                        android:id="@+id/tv_home_month"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"

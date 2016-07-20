@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.young.ownertask.R;
+import com.young.ownertask.sql.DatabaseHelper;
 
 public class StartUpActivity extends Activity implements View.OnClickListener {
 
@@ -19,6 +20,8 @@ public class StartUpActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_up);
+
+        DatabaseHelper db = new DatabaseHelper(this);
 
         nextBtn = (Button) findViewById(R.id.btn_next);
         nextBtn.setOnClickListener(this);

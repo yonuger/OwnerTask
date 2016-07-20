@@ -20,10 +20,11 @@
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.group.GroupActivity" />
         <activity android:name=".ui.list.ListActivity" />
-        <activity android:name=".ui.add.AddActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.timeline.TimeLineActivity" />
-        <activity android:name=".ui.setting.SettingActivity"></activity>
+        <activity android:name=".ui.setting.SettingActivity" />
+        <activity android:name=".ui.calendar.CalendarActivity"></activity>
+        <activity android:name=".ui.add.view.AddActivity_"/>
     </application>
 
 </manifest>

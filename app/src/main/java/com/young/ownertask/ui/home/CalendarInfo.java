@@ -10,10 +10,13 @@ package com.young.ownertask.ui.home;
 public class CalendarInfo {
     private String day;
     private Boolean hasNotice;
+    //不在这个月份的
+    private boolean isInMonth = false;
 
-    public CalendarInfo(String day, boolean hasNotice) {
+    public CalendarInfo(String day, boolean hasNotice, boolean isInMonth) {
         this.day = day;
         this.hasNotice = hasNotice;
+        this.isInMonth = isInMonth;
     }
 
     public Boolean getHasNotice() {
@@ -30,5 +33,13 @@ public class CalendarInfo {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    public boolean isInMonth() {
+        return isInMonth;
+    }
+
+    public void setInMonth(boolean inMonth) {
+        isInMonth = inMonth;
     }
 }
